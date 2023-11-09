@@ -3,54 +3,73 @@
 #ifndef DICTIONARY_H
 #define DICTIONARY_H
 
+template <typename T1, typename T2>
 class Dictionary
 {
 private:
+	T1 key;
+	T2 value;
+
+	T1* arrKey;
+	T2* arrValue;
+
 	int length;
-	int* arrKey;
-	int* arrValue;
 
-	void createArr(int*& const, const int&);
+#pragma region methods
+	void createArr(T1*& const, T2*& const, const int&, const bool&);
 
-	void fillArr(int*& const, const int&, const int&);
+	void fillArr(T1*& const, T2*& const, const bool&);
 
-	void copyArr(int*& const, int*& const, const int&);
+	void copyArr(T1*& const, T1*& const, T2*& const, T2*& const, const bool&);
 
-	void cleanArr(int*& const);
+	void cleanArr(T1*& const, T2*& const, const bool&);
 
-	void createDict(int*& const, const int&, const int&);
+	void createDict(T1*& const, T2*& const, const int&, const bool&);
 
-	void fillDict(int*& const, const int&, const int&);
+	void extendDict(T1*& const, T2*& const, const int&, const bool&);
+
+#pragma endregion methods
+
+#pragma region setters
+	void setKey(const T1& key);
+	void setValue(const T2& key);
+#pragma endregion setters
 
 public:
-	Dictionary() : length{}, arrKey{}, arrValue{} {
+	Dictionary() : arrKey{}, arrValue{}, key{}, value{}, length{} {}
+
+	~Dictionary()
+	{
+		cleanArr(this->arrKey, this->arrValue, true);	//array of keys
+		cleanArr(this->arrKey, this->arrValue, false);	//array of values
 	}
 
-	~Dictionary() 
+	void append(const T1& key, const T2& value)
 	{
-		cleanArr(this->arrKey);
-	}
+		setKey(key);
+		setValue(value);
 
-	void append(const int& key, const int& value) 
-	{
-		if (this->length == 0) {
-			createDict(this->arrKey, key, this->length);
-			createDict(this->arrValue, value, this->length);
+		if (this->length == 0)
+		{
+			createDict(this->arrKey, this->arrValue, this->length + 1, true);	//array of keys
+			createDict(this->arrKey, this->arrValue, this->length + 1, false);//array of values
 		}
 		else
 		{
-			fillDict(this->arrKey, key, this->length);
-			fillDict(this->arrValue, value, this->length);
+			extendDict(this->arrKey, this->arrValue, this->length + 1, true);	//array of keys
+			extendDict(this->arrKey, this->arrValue, this->length + 1, false);	//array of values
 		}
 		this->length++;
 	}
 
-	int* getKey() {
-		return this->arrKey;
-	}
+#pragma region getters
+	T1* getKey() const;
 
-	int* getValue() {
-		return this->arrValue;
-	}
+	T2* getValue() const;
+#pragma endregion getters
+
 };
-#endif
+
+#include "Dictionary.inl"
+
+#endif DICTIONARY_H
