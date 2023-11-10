@@ -20,18 +20,23 @@ private:
 
 	void fillArr(T1*& const, T2*& const, const bool&);
 
-	void copyArr(T1*& const, T1*& const, T2*& const, T2*& const, const bool&);
+	void copyArr(T1*& const, T1*& const, T2*& const, T2*& const, const bool&, const bool& isKey = false, const short& searchIndex = 0);
 
 	void cleanArr(T1*& const, T2*& const, const bool&);
 
-	void createDict(T1*& const, T2*& const, const int&, const bool&);
+	void createDict(T1*& const, T2*& const, const bool&);
 
-	void extendDict(T1*& const, T2*& const, const int&, const bool&);
+	void extendDict(T1*& const, T2*& const, const bool&);
+
+	void reduceDict(const short&, const bool&);
+
+	bool isKey(const T1&, short&);
 
 #pragma endregion methods
 
 #pragma region setters
 	void setKey(const T1& key);
+
 	void setValue(const T2& key);
 #pragma endregion setters
 
@@ -45,14 +50,17 @@ public:
 	}
 
 	void append(const T1&, const T2&);
+
 	void append(const T1&);
 
-	//void remove();
+	void remove(const T1&);
 
 #pragma region getters
 	T1* getKey() const;
 
 	T2* getValue() const;
+
+	int getLength() const;
 #pragma endregion getters
 
 };
