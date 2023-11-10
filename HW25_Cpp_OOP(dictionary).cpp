@@ -20,5 +20,11 @@ int main()
 	for (short i = 0; i < length; i++)
 		std::cout << dict.getKey()[i] << "\t| " << dict.getValue()[i] << "\n";
 
+	dict.pop();
+
+	length = dict.getLength();
+	for (short i = 0; i < length; i++)
+		std::cout << dict.getKey()[i] << "\t| " << dict.getValue()[i] << "\n";
+
     return 0;
 }

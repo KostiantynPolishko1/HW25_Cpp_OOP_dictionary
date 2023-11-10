@@ -142,6 +142,15 @@ inline void Dictionary<T1, T2>::remove(const T1& key) {
 }
 
 template<typename T1, typename T2>
+inline void Dictionary<T1, T2>::pop() 
+{
+	reduceDict(this->length-1, true);	//array of keys
+	reduceDict(this->length-1, false);	//array of values
+
+	this->length--;
+}
+
+template<typename T1, typename T2>
 inline void Dictionary<T1, T2>::append(const T1& key) {
 	T2 value{};
 	append(key, value);

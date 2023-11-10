@@ -55,6 +55,8 @@ public:
 
 	void remove(const T1&);
 
+	void pop();
+
 #pragma region getters
 	T1* getKey() const;
 
