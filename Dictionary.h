@@ -67,10 +67,12 @@ public:
 
 	T2& operator[](const T1& indexKey);
 
-	friend std::ostream& operator<<(std::ostream& out, const Dictionary<T1, T2>& dict)	{
-		static short index{ -1 };
-		index++;
-		return out << " key: " << dict.getKey()[index] << " | value: " << dict.getValue()[index];
+	friend std::ostream& operator<<(std::ostream& out, const Dictionary<T1, T2>& dict)	
+	{
+		size_t length = dict.getLength();
+		for (size_t i = 0; i < length; i++)
+			out << " key: " << dict.getKey()[i] << " | value: " << dict.getValue()[i] << "\n";
+		return out;
 	}
 
 #pragma region getters

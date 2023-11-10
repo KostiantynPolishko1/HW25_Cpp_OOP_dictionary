@@ -129,9 +129,11 @@
   <ItemGroup>
     <ClCompile Include="Dictionary.cpp" />
     <ClCompile Include="HW25_Cpp_OOP(dictionary).cpp" />
+    <ClCompile Include="OutPut.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Dictionary.h" />
+    <ClInclude Include="OutPut.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Dictionary.inl" />

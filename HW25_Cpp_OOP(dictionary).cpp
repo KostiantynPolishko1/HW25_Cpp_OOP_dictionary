@@ -1,53 +1,40 @@
 #include "Dictionary.h"
+#include "OutPut.h"
 
 int main()
 {
 	int length{};
     Dictionary<float, char> dict;
 
-	dict.append(1.1f, 'a');
-	dict.append(2.2f, 'b');
-	dict.append(3.3f);
+	dict.append(1.1f, 'a');	//add key + value
+	dict.append(2.2f, 'b');	//add key + value
+	dict.append(3.3f);		//add key + none
 
-	/*length = dict.getLength();
+	std::cout << dict << "\n";	//print data of dict by ostream << object
+
 	float* arrKeys{};
-	dict.keys(arrKeys);
-	for (short i = 0; i < length; i++)
-		std::cout << arrKeys[i] << "\t";
-	std::cout << std::endl;
+	dict.keys(arrKeys);	//array of keys by deep copy
+
+	printDict(arrKeys, dict.getLength());
 	delete[] arrKeys;
 	arrKeys = nullptr;
 
 	char* arrValues{};
-	dict.values(arrValues);
-	for (short i = 0; i < length; i++)
-		std::cout << arrValues[i] << "\t";
-	std::cout << std::endl;
+	dict.values(arrValues);	//array of values by deep copy
+
+	printDict(arrValues, dict.getLength());
 	delete[] arrValues;
 	arrValues = nullptr;
 
-	for (short i = 0; i < length; i++)
-		std::cout << dict.getKey()[i] << "\t| " << dict.getValue()[i] << "\n";
+	dict.remove(2.2f);	//delete item(key + value) by index key
 
-	dict.remove(2.2f);
+	dict.pop();	//delete the last item(key + value)
 
-	length = dict.getLength();
-	for (short i = 0; i < length; i++)
-		std::cout << dict.getKey()[i] << "\t| " << dict.getValue()[i] << "\n";
+	dict[2.4f] = 'f';	//add new value by index operator[key]
 
-	dict.pop();
-*/
+	std::cout << dict[2.4f] << "\n"; //take the value be index operator[key]
 
-	std::cout << dict[2.3f] << "\n";
-
-	dict[2.4f] = 'f';
-
-	length = dict.getLength();
-	/*for (short i = 0; i < length; i++)
-		std::cout << dict.getKey()[i] << "\t| " << dict.getValue()[i] << "\n";*/
-	
-	for (short i = 0; i < length; i++)
-		std::cout << dict << "\n";
+	std::cout << dict << "\n";	//print data of dict by ostream << object
 
     return 0;
 }
