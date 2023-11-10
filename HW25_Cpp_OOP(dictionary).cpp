@@ -37,13 +37,16 @@ int main()
 		std::cout << dict.getKey()[i] << "\t| " << dict.getValue()[i] << "\n";
 
 	dict.pop();
-
-	length = dict.getLength();
-	for (short i = 0; i < length; i++)
-		std::cout << dict.getKey()[i] << "\t| " << dict.getValue()[i] << "\n";*/
+*/
 
 	char temp = dict[2.3f];
 	std::cout << temp << "\n";
+
+	dict[2.3f] = 'f';
+
+	length = dict.getLength();
+	for (short i = 0; i < length; i++)
+		std::cout << dict.getKey()[i] << "\t| " << dict.getValue()[i] << "\n";
 
     return 0;
 }

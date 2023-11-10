@@ -63,6 +63,8 @@ public:
 
 	const T2& operator[](const T1&) const;
 
+	T2& operator[](const T1& indexKey);
+
 #pragma region getters
 	T1* getKey() const;
 

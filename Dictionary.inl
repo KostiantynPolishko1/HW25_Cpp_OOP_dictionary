@@ -114,6 +114,12 @@ inline void Dictionary<T1, T2>::append(const T1& key, const T2& value)
 }
 
 template<typename T1, typename T2>
+inline void Dictionary<T1, T2>::append(const T1& key) {
+	T2 value{};
+	append(key, value);
+}
+
+template<typename T1, typename T2>
 inline void Dictionary<T1, T2>::remove(const T1& key) {
 
 	short searchIndex{};
@@ -167,9 +173,14 @@ inline const T2& Dictionary<T1, T2>::operator[](const T1& indexKey) const
 }
 
 template<typename T1, typename T2>
-inline void Dictionary<T1, T2>::append(const T1& key) {
-	T2 value{};
-	append(key, value);
+inline T2& Dictionary<T1, T2>::operator[](const T1& indexKey)
+{
+	for (short i = 0; i < this->length; i++) {
+		if (this->arrKey[i] == indexKey)
+			return this->arrValue[i];
+	}
+	append(indexKey);
+	return this->arrValue[this->length - 1];
 }
 
 template <typename T1, typename T2>
