@@ -11,6 +11,14 @@ int main()
 	dict.append(3.3f);
 
 	length = dict.getLength();
+	float* arr{};
+	dict.keys(arr);
+	for (short i = 0; i < length; i++)
+		std::cout << arr[i] << "\t";
+	std::cout << std::endl;
+	delete[] arr;
+	arr = nullptr;
+
 	for (short i = 0; i < length; i++)
 		std::cout << dict.getKey()[i] << "\t| " << dict.getValue()[i] << "\n";
 

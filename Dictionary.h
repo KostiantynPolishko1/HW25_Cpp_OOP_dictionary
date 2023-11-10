@@ -57,6 +57,8 @@ public:
 
 	void pop();
 
+	void keys(T1*& const);
+
 #pragma region getters
 	T1* getKey() const;
 

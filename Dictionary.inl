@@ -1,5 +1,5 @@
-#ifndef DICT_INL
-#define DICT_INL
+#ifndef DICTIONARY_INL
+#define DICTIONARY_INL
 
 #include "Dictionary.h"
 
@@ -42,21 +42,6 @@ inline void Dictionary<T1, T2>::copyArr(T1*& const arrKey1, T1*& const arrKey2, 
 		else
 			arrValue1[i] = arrValue2[j];
 	}
-	
-	/*if (flag) {
-		for (size_t i = 0; i < this->length; i++) {
-			if (isKey && i == searchIndex)
-				continue;
-			arrKey1[i] = arrKey2[i];
-		}
-	}
-	else {
-		for (size_t i = 0; i < this->length; i++) {
-			if (isKey && i == searchIndex)
-				continue;
-			arrValue1[i] = arrValue2[i];
-		}
-	}*/
 }
 
 template <typename T1, typename T2>
@@ -150,6 +135,16 @@ inline void Dictionary<T1, T2>::pop()
 	this->length--;
 }
 
+template <typename T1, typename T2>
+inline void Dictionary<T1, T2>::keys(T1*& const arrKey) {
+	if (this->length == 0)
+		return;
+
+	T2* arrValue{};
+	createArr(arrKey, arrValue, this->length, true);	//array of keys
+	copyArr(arrKey, this->arrKey, arrValue, this->arrValue, true);	//array of keys
+}
+
 template<typename T1, typename T2>
 inline void Dictionary<T1, T2>::append(const T1& key) {
 	T2 value{};
@@ -181,4 +176,4 @@ inline void Dictionary<T1, T2>::setValue(const T2& value) {
 	this->value = value;
 }
 
-#endif
+#endif DICTIONARY_INL
