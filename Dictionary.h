@@ -44,23 +44,10 @@ public:
 		cleanArr(this->arrKey, this->arrValue, false);	//array of values
 	}
 
-	void append(const T1& key, const T2& value)
-	{
-		setKey(key);
-		setValue(value);
+	void append(const T1&, const T2&);
+	void append(const T1&);
 
-		if (this->length == 0)
-		{
-			createDict(this->arrKey, this->arrValue, this->length + 1, true);	//array of keys
-			createDict(this->arrKey, this->arrValue, this->length + 1, false);//array of values
-		}
-		else
-		{
-			extendDict(this->arrKey, this->arrValue, this->length + 1, true);	//array of keys
-			extendDict(this->arrKey, this->arrValue, this->length + 1, false);	//array of values
-		}
-		this->length++;
-	}
+	//void remove();
 
 #pragma region getters
 	T1* getKey() const;
