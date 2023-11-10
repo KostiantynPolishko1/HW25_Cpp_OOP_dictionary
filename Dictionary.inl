@@ -2,6 +2,7 @@
 #define DICTIONARY_INL
 
 #include "Dictionary.h"
+#include <iostream>
 
 template<typename T1, typename T2>
 inline bool Dictionary<T1, T2>::isKey(const T1& key, short& searchIndex) {

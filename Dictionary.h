@@ -3,6 +3,8 @@
 #ifndef DICTIONARY_H
 #define DICTIONARY_H
 
+#include <iostream>
+
 template <typename T1, typename T2>
 class Dictionary
 {
@@ -64,6 +66,12 @@ public:
 	const T2& operator[](const T1&) const;
 
 	T2& operator[](const T1& indexKey);
+
+	friend std::ostream& operator<<(std::ostream& out, const Dictionary<T1, T2>& dict)	{
+		static short index{ -1 };
+		index++;
+		return out << " key: " << dict.getKey()[index] << " | value: " << dict.getValue()[index];
+	}
 
 #pragma region getters
 	T1* getKey() const;

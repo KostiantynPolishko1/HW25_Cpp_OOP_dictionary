@@ -1,4 +1,3 @@
-#include <iostream>
 #include "Dictionary.h"
 
 int main()
@@ -39,14 +38,16 @@ int main()
 	dict.pop();
 */
 
-	char temp = dict[2.3f];
-	std::cout << temp << "\n";
+	std::cout << dict[2.3f] << "\n";
 
-	dict[2.3f] = 'f';
+	dict[2.4f] = 'f';
 
 	length = dict.getLength();
+	/*for (short i = 0; i < length; i++)
+		std::cout << dict.getKey()[i] << "\t| " << dict.getValue()[i] << "\n";*/
+	
 	for (short i = 0; i < length; i++)
-		std::cout << dict.getKey()[i] << "\t| " << dict.getValue()[i] << "\n";
+		std::cout << dict << "\n";
 
     return 0;
 }
