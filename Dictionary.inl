@@ -157,6 +157,16 @@ inline void Dictionary<T1, T2>::values(T2*& const arrValue)
 }
 
 template<typename T1, typename T2>
+inline const T2& Dictionary<T1, T2>::operator[](const T1& indexKey) const
+{
+	for (short i = 0; i < this->length; i++) {
+		if (this->arrKey[i] == indexKey)
+			return this->arrValue[i];
+	}
+	return {};
+}
+
+template<typename T1, typename T2>
 inline void Dictionary<T1, T2>::append(const T1& key) {
 	T2 value{};
 	append(key, value);

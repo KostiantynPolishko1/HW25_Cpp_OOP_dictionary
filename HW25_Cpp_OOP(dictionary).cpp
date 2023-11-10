@@ -10,7 +10,7 @@ int main()
 	dict.append(2.2f, 'b');
 	dict.append(3.3f);
 
-	length = dict.getLength();
+	/*length = dict.getLength();
 	float* arrKeys{};
 	dict.keys(arrKeys);
 	for (short i = 0; i < length; i++)
@@ -40,7 +40,10 @@ int main()
 
 	length = dict.getLength();
 	for (short i = 0; i < length; i++)
-		std::cout << dict.getKey()[i] << "\t| " << dict.getValue()[i] << "\n";
+		std::cout << dict.getKey()[i] << "\t| " << dict.getValue()[i] << "\n";*/
+
+	char temp = dict[2.3f];
+	std::cout << temp << "\n";
 
     return 0;
 }

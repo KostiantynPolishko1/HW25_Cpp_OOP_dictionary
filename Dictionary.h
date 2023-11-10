@@ -61,6 +61,8 @@ public:
 
 	void values(T2*& const);
 
+	const T2& operator[](const T1&) const;
+
 #pragma region getters
 	T1* getKey() const;
 
