@@ -59,6 +59,8 @@ public:
 
 	void keys(T1*& const);
 
+	void values(T2*& const);
+
 #pragma region getters
 	T1* getKey() const;
 

@@ -4,20 +4,28 @@
 int main()
 {
 	int length{};
-    Dictionary<float, bool> dict;
+    Dictionary<float, char> dict;
 
-	dict.append(1.1f, true);
-	dict.append(2.2f, false);
+	dict.append(1.1f, 'a');
+	dict.append(2.2f, 'b');
 	dict.append(3.3f);
 
 	length = dict.getLength();
-	float* arr{};
-	dict.keys(arr);
+	float* arrKeys{};
+	dict.keys(arrKeys);
 	for (short i = 0; i < length; i++)
-		std::cout << arr[i] << "\t";
+		std::cout << arrKeys[i] << "\t";
 	std::cout << std::endl;
-	delete[] arr;
-	arr = nullptr;
+	delete[] arrKeys;
+	arrKeys = nullptr;
+
+	char* arrValues{};
+	dict.values(arrValues);
+	for (short i = 0; i < length; i++)
+		std::cout << arrValues[i] << "\t";
+	std::cout << std::endl;
+	delete[] arrValues;
+	arrValues = nullptr;
 
 	for (short i = 0; i < length; i++)
 		std::cout << dict.getKey()[i] << "\t| " << dict.getValue()[i] << "\n";

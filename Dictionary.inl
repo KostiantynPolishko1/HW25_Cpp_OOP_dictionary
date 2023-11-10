@@ -145,6 +145,17 @@ inline void Dictionary<T1, T2>::keys(T1*& const arrKey) {
 	copyArr(arrKey, this->arrKey, arrValue, this->arrValue, true);	//array of keys
 }
 
+template <typename T1, typename T2>
+inline void Dictionary<T1, T2>::values(T2*& const arrValue) 
+{
+	if (this->length == 0)
+		return;
+
+	T1* arrKey{};
+	createArr(arrKey, arrValue, this->length, false);	//array of values
+	copyArr(arrKey, this->arrKey, arrValue, this->arrValue, false);	//array of values
+}
+
 template<typename T1, typename T2>
 inline void Dictionary<T1, T2>::append(const T1& key) {
 	T2 value{};
